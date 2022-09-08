@@ -1,0 +1,35 @@
+.footer{
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.handle-black-mode{
+  width: 60px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+}
+.circle{
+  cursor: pointer;
+  width:23px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.black-mode-off{
+  background-color: rgb(255, 255, 255);
+  justify-content: flex-end;
+}
+.ligt-mode-on{
+  background-color: rgb(2, 183, 255);
+  justify-content: flex-start;
+}
+.ligth-circle{
+  background-color: rgb(2, 137, 255);
+}
+.black-circle{
+  background-color:white;
+}
