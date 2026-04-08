@@ -3,10 +3,19 @@ const app = express()
 const config = require("./config/env")
 const port = config.port
 const db = require("./config/database")
+app.use(express.json())
+
+
+/* Router import*/
+const userRouter = require("./routes/userRouter")
+const authRouter = require("./routes/authRouter")
 
 
 
 
+/* Routes*/
+app.use("/users", userRouter)
+app.use("/auth", authRouter)
 
 
 
@@ -22,7 +31,7 @@ const initDatabase = async () => {
         await db.authenticate()
         console.log("✅ Connection to the database has been established successfully")
 
-        await db.sync({ alter: true })
+        await db.sync({ alter: false })
         console.log("✅ DB Synced")
 
     } catch (error) {

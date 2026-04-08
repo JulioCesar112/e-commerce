@@ -1,4 +1,3 @@
-const { toDefaultValue } = require("sequelize/lib/utils")
 const db = require("../config/database")
 const { DataTypes } = require("sequelize")
 
@@ -26,7 +25,7 @@ const Users = db.define("users", {
         allowNull:false,
     },
     role:{
-        type:DataTypes.BOOLEAN,
+        type:DataTypes.STRING,
         allowNull:false,
         defaultValue:"normal"
     }

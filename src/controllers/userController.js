@@ -15,7 +15,7 @@ const getAllUsers = async () => {
 const createUser = async (data) => {
 
     try {
-        const hashedPassword = await hashPassword(data.password)
+        const hashedPassword = await hashPassword.hashPassword(data.password)
         const newUser = await Users.create({
             id: uuid.v4(),
             name: data.name,
