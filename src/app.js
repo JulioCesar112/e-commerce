@@ -5,6 +5,12 @@ const port = config.port
 const db = require("./config/database")
 const cors = require("cors")
 
+
+const passport = require("passport")
+require("./middlewares/authMiddleware")(passport)
+
+app.use(passport.initialize())
+
 /* Router import*/
 const userRouter = require("./routes/userRouter")
 const authRouter = require("./routes/authRouter")

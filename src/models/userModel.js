@@ -29,6 +29,8 @@ const Users = db.define("users", {
         allowNull:false,
         defaultValue:"normal"
     }
+},{
+    timestamps: true
 })
 
 module.exports = Users

@@ -2,9 +2,17 @@ const express = require("express")
 const router = express.Router()
 const userService = require("../services/userService")
 
+const passport = require("passport")
+const { adminValidate } = require("../middlewares/isAdmin")
 
+const auth = passport.authenticate("jwt", { session: false })
 
-router.get("/", userService.getAllUsers)
-router.get("/:id", userService.getUserById)
+router
+    .route("/")
+    .get(auth, adminValidate, userService.getAllUsers)
+
+router
+    .route("/:id")
+    .get(auth, adminValidate, userService.getUserById)
 
 module.exports = router
