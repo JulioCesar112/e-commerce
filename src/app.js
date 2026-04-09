@@ -3,14 +3,15 @@ const app = express()
 const config = require("./config/env")
 const port = config.port
 const db = require("./config/database")
-app.use(express.json())
-
+const cors = require("cors")
 
 /* Router import*/
 const userRouter = require("./routes/userRouter")
 const authRouter = require("./routes/authRouter")
 
 
+app.use(express.json())
+app.use(cors())
 
 
 /* Routes*/
