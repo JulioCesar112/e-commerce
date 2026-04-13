@@ -38,7 +38,7 @@ const registerCategories = async (req, res) => {
 }
 
 
-module.exports ={
+module.exports = {
     getAllCategories,
     registerCategories
 }

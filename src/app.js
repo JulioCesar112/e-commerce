@@ -15,7 +15,7 @@ app.use(passport.initialize())
 const userRouter = require("./routes/userRouter")
 const authRouter = require("./routes/authRouter")
 const categoryRouter = require("./routes/categoryRouter")
-
+const productRouter = require("./routes/productRouter")
 
 app.use(express.json())
 app.use(cors())
@@ -25,7 +25,7 @@ app.use(cors())
 app.use("/users", userRouter)
 app.use("/auth", authRouter)
 app.use("/categories", categoryRouter)
-
+app.use("/products", productRouter)
 
 
 

@@ -7,7 +7,7 @@ const getAllCategories = async () => {
         return data
     } catch (error) {
         console.error("Error in getAllCategories")
-        throw error       
+        throw error
     }
 }
 
@@ -15,8 +15,8 @@ const createCategory = async (name) => {
     try {
 
         const newCategory = await Category.create({
-          id: uuid.v4(),
-          name
+            id: uuid.v4(),
+            name
         })
 
         return newCategory
