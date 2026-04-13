@@ -17,7 +17,7 @@ module.exports = (passport) => {
           return done(null, false);
         }
 
-        // 🔥 Aquí ya tienes el usuario real
+      
         return done(null, user);
 
       } catch (error) {

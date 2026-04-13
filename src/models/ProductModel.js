@@ -14,6 +14,12 @@ const Product = sequelize.define("Product", {
     description: {
         type: DataTypes.TEXT
     },
+    upc: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+
+    },
     price: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false
@@ -22,8 +28,9 @@ const Product = sequelize.define("Product", {
         type: DataTypes.INTEGER,
         defaultValue: 0
     },
-    category: {
-        type: DataTypes.STRING
+    categoryId: {
+        type: DataTypes.UUID,
+        allowNull: false
     },
     image: {
         type: DataTypes.STRING

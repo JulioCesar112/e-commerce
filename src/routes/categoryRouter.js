@@ -1,22 +1,17 @@
 const express = require("express")
 const router = express.Router()
-const userService = require("../services/userService")
-
+const categoryServices = require("../services/categoryService")
 
 const passport = require("passport")
 const auth = passport.authenticate("jwt", { session: false })
 
 const { adminValidate } = require("../middlewares/isAdmin")
 
-
-
-
 router
     .route("/")
-    .get(auth, adminValidate, userService.getAllUsers)
+    .get(auth, adminValidate, categoryServices.getAllCategories)
+    .post(auth, adminValidate, categoryServices.registerCategories)
 
-router
-    .route("/:id")
-    .get(auth, adminValidate, userService.getUserById)
+
 
 module.exports = router

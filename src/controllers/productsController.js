@@ -15,7 +15,7 @@ const getAllProducts = async () => {
 const createProducts = async (data) => {
     try {
         const existingProduct = await Product.findOne({
-            where: { id: data.id }
+            where: { upc: data.upc }
         })
         if (existingProduct) {
             throw new Error("PRODUCT_EXISTS")
