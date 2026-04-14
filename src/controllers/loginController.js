@@ -3,40 +3,44 @@ const { comparePassword } = require("../utils/bcrypt")
 
 const loginUser = async (email, password) => {
     try {
-        // 1. Validación básica
+        console.log("📩 EMAIL:", email)
+        console.log("🔑 PASSWORD:", password)
+
         if (!email || !password) {
             throw new Error("EMAIL_AND_PASSWORD_ARE_REQUIRED")
         }
 
-        // 2. Buscar usuario
         const user = await Users.findOne({
             where: { email }
         })
 
-        // 3. Mensaje genérico (seguridad)
+        console.log("👤 USER:", user)
+
         if (!user) {
             throw new Error("INVALID_CREDENTIALS")
         }
 
-        // 4. Comparar contraseña
+        console.log("🔐 HASH DB:", user.password)
+
         const isValidPassword = await comparePassword(password, user.password)
+
+        console.log("✅ MATCH:", isValidPassword)
 
         if (!isValidPassword) {
             throw new Error("INVALID_CREDENTIALS")
         }
 
-        // 5. Retornar solo datos seguros
         return {
             success: true,
             user: {
                 id: user.id,
                 email: user.email,
-                role: user.role // opcional si manejas roles
+                role: user.role
             }
         }
 
     } catch (error) {
-        console.error("Error in loginUser:", error.message)
+        console.error("❌ ERROR loginUser:", error)
         throw error
     }
 }

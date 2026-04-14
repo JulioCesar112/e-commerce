@@ -30,7 +30,7 @@ app.use("/products", productRouter)
 
 
 app.get("/", (req, res) => {
-    res.status(200).json({ message: "welcome to the E-commerce API" })
+    res.status(200).json({ message: "Welcome to the E-commerce API" })
 
 })
 
