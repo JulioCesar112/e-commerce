@@ -10,8 +10,6 @@ const login = async (req, res) => {
 
         if (data.success) {
 
-            console.log("JWT EXPIRES:", process.env.JWT_EXPIRES)
-            // 🔥 Generar token correctamente
             const token = jwt.sign(
                 {
                     id: data.user.id,
