@@ -9,6 +9,8 @@ const login = async (req, res) => {
         const data = await loginUser(email, password)
 
         if (data.success) {
+
+            console.log("JWT EXPIRES:", process.env.JWT_EXPIRES)
             // 🔥 Generar token correctamente
             const token = jwt.sign(
                 {
