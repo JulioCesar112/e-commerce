@@ -36,13 +36,14 @@ const deleteProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
     try {
-        const { name, price, upc, categoryId } = req.body
+        const { name, price, upc, categoryId, image } = req.body
 
         const newProduct = await productsControler.createProducts({
             name,
             price,
             upc,
-            categoryId
+            categoryId,
+            image
         })
 
         return res.status(201).json({
@@ -55,7 +56,7 @@ const createProduct = async (req, res) => {
 
         if (error.message === "ALL_FIELDS_REQUIRED") {
             return res.status(400).json({
-                message: "All fields (name, upc, price, categoryId) are required"
+                message: "All fields (name, upc, price, categoryId, image) are required"
             })
         }
 

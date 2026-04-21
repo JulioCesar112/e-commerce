@@ -32,7 +32,7 @@ const createProducts = async (data) => {
     try {
         console.log(data)
 
-        if (!data.name || !data.upc || !data.price || !data.categoryId) {
+        if (!data.name || !data.upc || !data.price || !data.categoryId || !data.image) {
             throw new Error("ALL_FIELDS_REQUIRED")
         }
 
@@ -50,6 +50,7 @@ const createProducts = async (data) => {
             upc: data.upc,
             price: data.price,
             categoryId: data.categoryId,
+            image: data.image
         })
 
         return newProduct
